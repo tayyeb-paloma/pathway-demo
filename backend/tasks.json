@@ -1,0 +1,282 @@
+[
+  {
+    "id": "onboarding",
+    "name": "Initial Onboarding",
+    "dependencies": [],
+    "description": "Patient registration and initial setup",
+    "responsibility": "provider"
+  },
+  {
+    "id": "parent-interview",
+    "name": "Parent/Caregiver Interview",
+    "dependencies": ["onboarding"],
+    "description": "Structured interview with parents or caregivers",
+    "responsibility": "provider"
+  },
+  {
+    "id": "developmental-history",
+    "name": "Developmental History",
+    "dependencies": ["parent-interview"],
+    "description": "Comprehensive developmental history assessment",
+    "responsibility": "provider"
+  },
+  {
+    "id": "medical-history",
+    "name": "Medical History Review",
+    "dependencies": ["onboarding"],
+    "description": "Review of medical records and health history",
+    "responsibility": "provider"
+  },
+  {
+    "id": "ados-2",
+    "name": "ADOS-2 Assessment",
+    "dependencies": ["parent-interview", "developmental-history"],
+    "description": "Autism Diagnostic Observation Schedule",
+    "responsibility": "provider"
+  },
+  {
+    "id": "adi-r",
+    "name": "ADI-R Interview",
+    "dependencies": ["parent-interview"],
+    "description": "Autism Diagnostic Interview-Revised",
+    "responsibility": "provider"
+  },
+  {
+    "id": "cognitive-assessment",
+    "name": "Cognitive Assessment",
+    "dependencies": ["medical-history"],
+    "description": "IQ and cognitive functioning evaluation",
+    "responsibility": "provider"
+  },
+  {
+    "id": "language-assessment",
+    "name": "Language Assessment",
+    "dependencies": ["cognitive-assessment"],
+    "description": "Speech and language evaluation",
+    "responsibility": "provider"
+  },
+  {
+    "id": "adaptive-behavior",
+    "name": "Adaptive Behavior Assessment",
+    "dependencies": ["parent-interview"],
+    "description": "Vineland or similar adaptive behavior scale",
+    "responsibility": "provider"
+  },
+  {
+    "id": "sensory-profile",
+    "name": "Sensory Profile",
+    "dependencies": ["parent-interview"],
+    "description": "Assessment of sensory processing patterns",
+    "responsibility": "provider"
+  },
+  {
+    "id": "behavioral-screening",
+    "name": "Behavioral Screening",
+    "dependencies": ["parent-interview"],
+    "description": "Screening for behavioral concerns",
+    "responsibility": "provider"
+  },
+  {
+    "id": "school-observation",
+    "name": "School Observation",
+    "dependencies": ["ados-2"],
+    "description": "Observation in educational setting",
+    "responsibility": "provider"
+  },
+  {
+    "id": "teacher-report",
+    "name": "Teacher Report",
+    "dependencies": ["school-observation"],
+    "description": "Educational staff input and observations",
+    "responsibility": "provider"
+  },
+  {
+    "id": "social-communication",
+    "name": "Social Communication Assessment",
+    "dependencies": ["ados-2", "language-assessment"],
+    "description": "Detailed social communication evaluation",
+    "responsibility": "provider"
+  },
+  {
+    "id": "executive-function",
+    "name": "Executive Function Assessment",
+    "dependencies": ["cognitive-assessment"],
+    "description": "Assessment of planning and organization skills",
+    "responsibility": "provider"
+  },
+  {
+    "id": "attention-screening",
+    "name": "Attention/ADHD Screening",
+    "dependencies": ["behavioral-screening"],
+    "description": "Screening for attention deficit concerns",
+    "responsibility": "provider"
+  },
+  {
+    "id": "anxiety-screening",
+    "name": "Anxiety Screening",
+    "dependencies": ["behavioral-screening"],
+    "description": "Assessment for anxiety disorders",
+    "responsibility": "provider"
+  },
+  {
+    "id": "mood-screening",
+    "name": "Mood Screening",
+    "dependencies": ["behavioral-screening"],
+    "description": "Screening for mood disorders",
+    "responsibility": "provider"
+  },
+  {
+    "id": "sleep-assessment",
+    "name": "Sleep Assessment",
+    "dependencies": ["medical-history"],
+    "description": "Evaluation of sleep patterns and issues",
+    "responsibility": "provider"
+  },
+  {
+    "id": "feeding-assessment",
+    "name": "Feeding/Eating Assessment",
+    "dependencies": ["medical-history"],
+    "description": "Assessment of eating behaviors and concerns",
+    "responsibility": "provider"
+  },
+  {
+    "id": "motor-skills",
+    "name": "Motor Skills Assessment",
+    "dependencies": ["medical-history"],
+    "description": "Fine and gross motor skill evaluation",
+    "responsibility": "provider"
+  },
+  {
+    "id": "occupational-therapy",
+    "name": "OT Evaluation",
+    "dependencies": ["motor-skills", "sensory-profile"],
+    "description": "Occupational therapy assessment",
+    "responsibility": "other"
+  },
+  {
+    "id": "physical-therapy",
+    "name": "PT Evaluation",
+    "dependencies": ["motor-skills"],
+    "description": "Physical therapy assessment if needed",
+    "responsibility": "other"
+  },
+  {
+    "id": "speech-therapy",
+    "name": "Speech Therapy Eval",
+    "dependencies": ["language-assessment"],
+    "description": "Speech-language therapy assessment",
+    "responsibility": "other"
+  },
+  {
+    "id": "psychological-eval",
+    "name": "Psychological Evaluation",
+    "dependencies": ["adi-r", "ados-2"],
+    "description": "Comprehensive psychological assessment",
+    "responsibility": "provider"
+  },
+  {
+    "id": "neurological-consult",
+    "name": "Neurological Consultation",
+    "dependencies": ["medical-history"],
+    "description": "Neurology consultation if indicated",
+    "responsibility": "provider"
+  },
+  {
+    "id": "genetic-counseling",
+    "name": "Genetic Counseling",
+    "dependencies": ["medical-history"],
+    "description": "Genetic evaluation and counseling",
+    "responsibility": "provider"
+  },
+  {
+    "id": "hearing-test",
+    "name": "Hearing Assessment",
+    "dependencies": ["medical-history"],
+    "description": "Audiological evaluation",
+    "responsibility": "other"
+  },
+  {
+    "id": "vision-test",
+    "name": "Vision Assessment",
+    "dependencies": ["medical-history"],
+    "description": "Ophthalmological evaluation",
+    "responsibility": "other"
+  },
+  {
+    "id": "team-meeting",
+    "name": "Multidisciplinary Team Meeting",
+    "dependencies": ["psychological-eval", "speech-therapy", "occupational-therapy"],
+    "description": "Team consensus meeting",
+    "responsibility": "provider"
+  },
+  {
+    "id": "diagnosis-formulation",
+    "name": "Diagnosis Formulation",
+    "dependencies": ["team-meeting"],
+    "description": "Final diagnostic determination",
+    "responsibility": "provider"
+  },
+  {
+    "id": "report-writing",
+    "name": "Assessment Report",
+    "dependencies": ["diagnosis-formulation"],
+    "description": "Comprehensive written report",
+    "responsibility": "provider"
+  },
+  {
+    "id": "family-feedback",
+    "name": "Family Feedback Session",
+    "dependencies": ["report-writing"],
+    "description": "Results discussion with family",
+    "responsibility": "provider"
+  },
+  {
+    "id": "school-recommendations",
+    "name": "School Recommendations",
+    "dependencies": ["teacher-report", "diagnosis-formulation"],
+    "description": "Educational recommendations",
+    "responsibility": "provider"
+  },
+  {
+    "id": "treatment-planning",
+    "name": "Treatment Planning",
+    "dependencies": ["family-feedback"],
+    "description": "Development of intervention plan",
+    "responsibility": "provider"
+  },
+  {
+    "id": "therapy-referrals",
+    "name": "Therapy Referrals",
+    "dependencies": ["treatment-planning"],
+    "description": "Referrals to appropriate services",
+    "responsibility": "provider"
+  },
+  {
+    "id": "follow-up-scheduling",
+    "name": "Follow-up Scheduling",
+    "dependencies": ["therapy-referrals"],
+    "description": "Schedule future appointments",
+    "responsibility": "provider"
+  },
+  {
+    "id": "insurance-authorization",
+    "name": "Insurance Authorization",
+    "dependencies": ["diagnosis-formulation"],
+    "description": "Insurance approval for services",
+    "responsibility": "other"
+  },
+  {
+    "id": "care-coordination",
+    "name": "Care Coordination",
+    "dependencies": ["therapy-referrals", "insurance-authorization"],
+    "description": "Coordinate between providers",
+    "responsibility": "provider"
+  },
+  {
+    "id": "outcome-tracking",
+    "name": "Outcome Tracking Setup",
+    "dependencies": ["follow-up-scheduling"],
+    "description": "Establish progress monitoring system",
+    "responsibility": "provider"
+  }
+]
