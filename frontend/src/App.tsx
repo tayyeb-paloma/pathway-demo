@@ -19,7 +19,10 @@ interface TaskStatus {
   responsibility: 'provider' | 'other'
 }
 
-const API_BASE = 'http://localhost:8000'
+// Dynamic API base URL - uses /api for production (Render) and localhost:8000 for development
+const API_BASE = window.location.hostname === 'localhost' 
+  ? 'http://localhost:8000' 
+  : '/api'
 
 function App() {
   const [, setTasks] = useState<Task[]>([])
