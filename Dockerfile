@@ -53,11 +53,12 @@ RUN echo 'server { \
     } \
 }' > /etc/nginx/sites-available/default
 
-# Create startup script
-RUN echo -e '#!/bin/bash\nset -e\n\n# Start nginx in background\nnginx &\n\n# Start FastAPI application\nexec python main.py' > /app/start.sh && chmod +x /app/start.sh
+# Copy and setup startup script
+COPY docker-start.sh /app/docker-start.sh
+RUN chmod +x /app/docker-start.sh
 
 # Expose port
 EXPOSE 80
 
 # Start the application
-CMD ["/app/start.sh"]
+CMD ["/app/docker-start.sh"]
