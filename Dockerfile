@@ -54,14 +54,7 @@ RUN echo 'server { \
 }' > /etc/nginx/sites-available/default
 
 # Create startup script
-RUN echo '#!/bin/bash \
-set -e \
-\
-# Start nginx in background \
-nginx & \
-\
-# Start FastAPI application \
-exec python main.py' > /app/start.sh && chmod +x /app/start.sh
+RUN echo -e '#!/bin/bash\nset -e\n\n# Start nginx in background\nnginx &\n\n# Start FastAPI application\nexec python main.py' > /app/start.sh && chmod +x /app/start.sh
 
 # Expose port
 EXPOSE 80
